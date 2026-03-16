@@ -6,8 +6,17 @@ import shutil
 import traceback
 from .database import conn
 from .ai_sql import generate_sql
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UPLOAD_FOLDER = "data/uploads"
 EXPORT_FOLDER = "data/exports"

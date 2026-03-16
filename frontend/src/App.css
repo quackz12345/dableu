@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f8;
+  color: #111;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 320px;
+  background: white;
+  border-right: 1px solid #e5e5e5;
+  padding: 24px;
+}
+
+.main {
+  flex: 1;
+  padding: 24px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.dataset-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dataset-list li {
+  margin-top: 10px;
+}
+
+.dataset-button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dataset-button:hover {
+  background: #f0f0f0;
+}
+
+.dataset-button.active {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.error {
+  color: #b00020;
+}
