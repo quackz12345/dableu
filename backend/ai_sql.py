@@ -1,7 +1,25 @@
 import os
 from google import genai
+import re
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+
+def clean_sql(text: str) -> str:
+    text = text.strip()
+
+    # remove markdown code blocks
+    text = re.sub(r"```sql", "", text, flags=re.IGNORECASE)
+    text = text.replace("```", "")
+
+    # remove leading/trailing whitespace
+    text = text.strip()
+
+    # remove trailing semicolon if present
+    if text.endswith(";"):
+        text = text[:-1]
+
+    return text
 
 def generate_sql(question: str, table_name: str, columns: list[dict]) -> str:
     schema_lines = []
@@ -30,5 +48,5 @@ User question:
         model="gemini-3-flash-preview",
         contents=prompt,
     )
-
-    return response.text.strip()
+    sql = response.text
+    return clean_sql(sql)
