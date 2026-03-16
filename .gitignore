@@ -1,6 +1,12 @@
+# Python
 venv/
 __pycache__/
-*.pyc
-.env
-uploads/
-database.duckdb
+
+# data
+data/uploads/
+data/database.duckdb
+data/exports/
+
+# frontend
+frontend/node_modules/
+frontend/dist/
